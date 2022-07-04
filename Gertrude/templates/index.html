@@ -84,6 +84,7 @@
         margin: 0;
         height: 347px;
         overflow: scroll;
+        scroll-behavior: smooth;
       }
       .messages .message {
         clear: both;
@@ -352,17 +353,20 @@
           });
       }.call(this));
     </script>
-    <script>
-      window.setInterval(function() {
-        var elem = document.getElementById('messages');
-        elem.scrollTop = elem.scrollHeight;
-      }, 100);
-    </script>
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F1RTS0P1CD"></script> <script>window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     
       gtag('config', 'G-F1RTS0P1CD');</script>
-      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+      var ht = 0;
+      $(".messages li").each(function() {
+        ht += $(this).height();
+      });
+      $(".messages").animate({scrollTop: ht});
+    </script>
   </body>
 </html>
