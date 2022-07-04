@@ -266,7 +266,7 @@
               </div>
               <div class="title">Chat</div>
           </div>
-          <ul class="messages"></ul>
+          <ul class="messages" id="messages"></ul>
           <div class="bottom_wrapper clearfix">
               <div class="message_input_wrapper">
                   <input class="message_input" placeholder="Type your message here..." />
@@ -346,10 +346,17 @@
                   if (e.which === 13) {
                       return sendMessage(getMessageText());
                   }
+                  
               });
               sendMessage("Salut je m'appelle Gertrude! :)");
           });
       }.call(this));
+    </script>
+    <script>
+      window.setInterval(function() {
+        var elem = document.getElementById('messages');
+        elem.scrollTop = elem.scrollHeight;
+      }, 100);
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F1RTS0P1CD"></script> <script>window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
